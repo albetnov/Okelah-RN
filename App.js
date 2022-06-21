@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import "react-native-gesture-handler";
+// import MainApp from "./app/index";
+import Card from "./app/Components/Card";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const item = {
+    title: "Test",
+    imageUrl:
+      "https://i1.wp.com/anitrendz.net/news/wp-content/uploads/thumbnails/chart-thumbnails/top-anime-summer-time-rendering.jpg",
+  };
+  // return <MainApp />;
+  return <Card item={item} />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
