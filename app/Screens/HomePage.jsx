@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Data from "";
+// import Data from "";
 
 export default function Home({ navigation }) {
   return (
@@ -18,9 +18,7 @@ export default function Home({ navigation }) {
       >
         <Image source={require("./asset/profile.png")} style={styles.propic} />
       </TouchableOpacity>
-      <View>
-        <FlatList data={data} />
-      </View>
+      <View>{/* <FlatList data={data} /> */}</View>
     </View>
   );
 }

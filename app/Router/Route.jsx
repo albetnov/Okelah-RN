@@ -6,12 +6,12 @@ import { useSelector } from "react-redux";
 import Login from "../Screens/LoginField";
 import About from "../Screens/AboutPage";
 import Home from "../Screens/HomePage";
+import Register from "../Screens/RegisterField";
 import { getApps, initializeApp } from "firebase/app";
 
 const Stack = createStackNavigator();
 
 export default function Route() {
-  const email = useSelector((state) => state.auth.email);
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
 
   const firebaseConfig = {
@@ -43,7 +43,10 @@ export default function Route() {
             <Stack.Screen name="About" component={About} />
           </>
         ) : (
-          <Stack.Screen name="Login" component={Login} />
+          <>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Register" component={Register} />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

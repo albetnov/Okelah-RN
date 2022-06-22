@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import CodeIcon from "../Components/CodeIcon";
+import FrameworkIcon from "../Components/FrameworkIcon";
 import { modifyAuth } from "../Redux/authSlice";
 
 export default function AboutPage({ navigation }) {
@@ -115,21 +117,7 @@ export default function AboutPage({ navigation }) {
             >
               <Text style={styles.circleText}>60%</Text>
             </View>
-            <View
-              style={[
-                {
-                  backgroundColor: "#F8F5F5",
-                },
-                styles.stackTechShadow,
-                styles.circle,
-                styles.stackTechText,
-              ]}
-            >
-              <Image
-                source={require("./asset/framework.png")}
-                style={styles.typeIcon}
-              />
-            </View>
+            <FrameworkIcon />
           </View>
         </View>
         <View style={[styles.socialContainer, { marginLeft: 10 }]}>
@@ -152,21 +140,7 @@ export default function AboutPage({ navigation }) {
             >
               <Text style={styles.circleText}>60%</Text>
             </View>
-            <View
-              style={[
-                {
-                  backgroundColor: "#F8F5F5",
-                },
-                styles.stackTechShadow,
-                styles.circle,
-                styles.stackTechText,
-              ]}
-            >
-              <Image
-                source={require("./asset/code.png")}
-                style={styles.typeIcon}
-              />
-            </View>
+            <CodeIcon />
           </View>
         </View>
       </View>
@@ -190,21 +164,7 @@ export default function AboutPage({ navigation }) {
           >
             <Text style={styles.circleText}>60%</Text>
           </View>
-          <View
-            style={[
-              {
-                backgroundColor: "#F8F5F5",
-              },
-              styles.stackTechShadow,
-              styles.circle,
-              styles.stackTechText,
-            ]}
-          >
-            <Image
-              source={require("./asset/code.png")}
-              style={styles.typeIcon}
-            />
-          </View>
+          <CodeIcon />
         </View>
       </View>
       <View style={[styles.socialContainer, { marginBottom: 50 }]}>
@@ -227,21 +187,7 @@ export default function AboutPage({ navigation }) {
           >
             <Text style={styles.circleText}>60%</Text>
           </View>
-          <View
-            style={[
-              {
-                backgroundColor: "#F8F5F5",
-              },
-              styles.circle,
-              styles.stackTechText,
-              styles.stackTechShadow,
-            ]}
-          >
-            <Image
-              source={require("./asset/code.png")}
-              style={styles.typeIcon}
-            />
-          </View>
+          <CodeIcon />
         </View>
       </View>
     </ScrollView>
