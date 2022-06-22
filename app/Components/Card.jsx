@@ -1,14 +1,11 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Card = ({ item, onPress, onDelete }) => (
+const Card = ({ item, onPress }) => (
   <View style={styles.cardContainer}>
     <TouchableOpacity onPress={onPress} style={styles.cardHeader}>
       <Image source={{ uri: item.imageUrl }} style={styles.cardImg} />
       <Text style={styles.cardText}>{item.title}</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.closeContainer} onPress={onDelete}>
-      <Text style={styles.close}>X</Text>
     </TouchableOpacity>
   </View>
 );
@@ -39,18 +36,5 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 20,
-  },
-  closeContainer: {
-    padding: 10,
-    paddingHorizontal: 15,
-    borderRadius: 15,
-    backgroundColor: "#9e9e9e",
-    opacity: 90,
-    elevation: 7,
-  },
-  close: {
-    color: "#707070",
-    fontWeight: "bold",
-    fontSize: 15,
   },
 });
