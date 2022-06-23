@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { getAnime } from "../Api/anitop";
 import Card from "../Components/Card";
+import { Header } from "../Components/Header";
+import { Switcher } from "../Components/Switcher";
 
 export default function Home({ navigation }) {
   const [anime, setAnime] = useState([]);
@@ -40,7 +42,7 @@ export default function Home({ navigation }) {
   }, []);
 
   const renderAnime = ({ item }) => {
-    const onPress = () => console.log("Pressed");
+    const onPress = () => navigation.navigate("AnimeDetail", { item });
 
     return <Card onPress={onPress} item={item} />;
   };
@@ -61,6 +63,15 @@ export default function Home({ navigation }) {
             data={anime}
             keyExtractor={(item) => item.title}
             renderItem={renderAnime}
+            style={styles.mb}
+            ListHeaderComponent={
+              <>
+                <Header type="anime" />
+                <View style={styles.switchContainer}>
+                  <Switcher type="anime" />
+                </View>
+              </>
+            }
           />
         )}
       </View>
@@ -72,16 +83,22 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 30,
   },
+  mb: {
+    marginBottom: 15,
+  },
   propicContainer: {
     padding: 10,
     backgroundColor: "#FFFFFF",
     maxWidth: 140,
     borderRadius: 50,
-    marginLeft: -30,
+    marginLeft: -60,
     alignItems: "flex-end",
   },
   propic: {
     width: 50,
     height: 50,
+  },
+  switchContainer: {
+    alignItems: "center",
   },
 });

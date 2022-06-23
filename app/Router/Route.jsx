@@ -8,6 +8,7 @@ import About from "../Screens/AboutPage";
 import Home from "../Screens/HomePage";
 import Register from "../Screens/RegisterField";
 import { getApps, initializeApp } from "firebase/app";
+import { AnimeDetail } from "../Screens/AnimeDetail";
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,7 @@ export default function Route() {
         {checkForAuth() ? (
           <>
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="AnimeDetail" component={AnimeDetail} />
             <Stack.Screen name="About" component={About} />
           </>
         ) : (

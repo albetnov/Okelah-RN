@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
+import { Back } from "../Components/Back";
 import CodeIcon from "../Components/CodeIcon";
 import FrameworkIcon from "../Components/FrameworkIcon";
 import { modifyAuth } from "../Redux/authSlice";
@@ -18,23 +19,20 @@ export default function AboutPage({ navigation }) {
 
   const dispatch = useDispatch();
 
-  // const logout = () => {
-  //   signOut(getAuth())
-  //     .then(() => {
-  //       console.log("Signed out.");
-  //       dispatch(modifyAuth({ email: "", isSignedIn: false }));
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
+  const logout = () => {
+    signOut(getAuth())
+      .then(() => {
+        console.log("Signed out.");
+        dispatch(modifyAuth({ email: "", isSignedIn: false }));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <ScrollView style={styles.container}>
-      <TouchableOpacity style={styles.topBar} onPress={() => navigation.pop()}>
-        <Image source={require("./asset/back.png")} style={styles.back} />
-        <Text style={styles.backText}>Back</Text>
-      </TouchableOpacity>
+      <Back onPress={() => navigation.pop()} />
       <View>
         <Text style={styles.title}>About Me</Text>
         <View style={[styles.textDivider, { width: "55%" }]}></View>
@@ -50,6 +48,9 @@ export default function AboutPage({ navigation }) {
           <Text style={styles.textMd}>+85 11140 5456</Text>
           <Text style={[styles.textMd, styles.mtSmall]}>Email:</Text>
           <Text style={styles.textMd}>{email}</Text>
+          <TouchableOpacity style={styles.logout} onPress={logout}>
+            <Text style={styles.logoutText}>Logout</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View>
@@ -198,19 +199,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
   },
-  topBar: {
-    flexDirection: "row",
-    marginTop: 20,
-    alignItems: "center",
-  },
-  back: {
-    width: 35,
-    height: 30,
-  },
-  backText: {
-    marginLeft: 10,
-    fontSize: 14,
-  },
   title: {
     marginTop: 10,
     fontSize: 36,
@@ -301,5 +289,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 1,
+  },
+  logout: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#e0e0e0",
+    borderRadius: 20,
+    alignItems: "center",
+    elevation: 5,
+  },
+  logoutText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#424242",
   },
 });

@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Status } from "./Status";
 
 const Card = ({ item, onPress }) => (
   <View style={styles.cardContainer}>
@@ -7,6 +8,7 @@ const Card = ({ item, onPress }) => (
       <Image source={{ uri: item.imageUrl }} style={styles.cardImg} />
       <Text style={styles.cardText}>{item.title}</Text>
     </TouchableOpacity>
+    <Status state={item.stats.status} />
   </View>
 );
 
@@ -22,15 +24,19 @@ const styles = StyleSheet.create({
     elevation: 7,
     shadowRadius: 2,
     backgroundColor: "#fafafa",
+    margin: 10,
   },
   cardHeader: {
     flexDirection: "row",
     alignItems: "center",
+    flexShrink: 1,
   },
   cardText: {
     marginLeft: 20,
-    fontSize: 25,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontWeight: "600",
+    flex: 1,
+    flexWrap: "wrap",
   },
   cardImg: {
     width: 80,
