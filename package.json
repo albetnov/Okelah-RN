@@ -27,7 +27,8 @@
     "react-native-web": "0.17.7",
     "react-redux": "^8.0.2",
     "expo-blur": "~11.1.0",
-    "expo-updates": "~0.13.2"
+    "expo-updates": "~0.13.2",
+    "expo-web-browser": "~10.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

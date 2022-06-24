@@ -14,6 +14,7 @@ import { Back } from "../Components/Back";
 import CodeIcon from "../Components/CodeIcon";
 import FrameworkIcon from "../Components/FrameworkIcon";
 import { modifyAuth } from "../Redux/authSlice";
+import { openBrowserAsync } from "expo-web-browser";
 
 export default function AboutPage({ navigation }) {
   const email = useSelector((state) => state.auth.email);
@@ -29,6 +30,10 @@ export default function AboutPage({ navigation }) {
       .catch((err) => {
         console.error(err);
       });
+  };
+
+  const handleOpenLinks = (url) => {
+    openBrowserAsync(url);
   };
 
   return (
@@ -68,14 +73,28 @@ export default function AboutPage({ navigation }) {
             source={require("./asset/facebook_icon.png")}
             style={[styles.socialIcon, styles.mtBig]}
           />
-          <Text style={[styles.links, styles.socialText]}>Example Profile</Text>
+          <Text
+            style={[styles.links, styles.socialText]}
+            onPress={() =>
+              handleOpenLinks(
+                "https://www.facebook.com/profile.php?id=100077882502140"
+              )
+            }
+          >
+            Albet Novendo
+          </Text>
         </View>
         <View style={styles.socialContainer}>
           <Image
             source={require("./asset/github_icon.png")}
             style={[styles.socialIcon, styles.mtBig]}
           />
-          <Text style={[styles.links, styles.socialText]}>@albetnov</Text>
+          <Text
+            style={[styles.links, styles.socialText]}
+            onPress={() => handleOpenLinks("https://github.com/albetnov")}
+          >
+            @albetnov
+          </Text>
         </View>
       </View>
       <View style={styles.socialContainer}>
@@ -83,14 +102,24 @@ export default function AboutPage({ navigation }) {
           source={require("./asset/instagram_icon.png")}
           style={[styles.socialIcon, styles.mtBig]}
         />
-        <Text style={[styles.links, styles.socialText]}>@exampleProfile</Text>
+        <Text
+          style={[styles.links, styles.socialText]}
+          onPress={() => handleOpenLinks("https://www.instagram.com/al_nv4/")}
+        >
+          @al_nv4
+        </Text>
       </View>
       <View style={styles.socialContainer}>
         <Image
           source={require("./asset/twitter_icon.png")}
           style={[styles.socialIcon, styles.mtBig]}
         />
-        <Text style={[styles.links, styles.socialText]}>@ExampleProfile</Text>
+        <Text
+          style={[styles.links, styles.socialText]}
+          onPress={() => handleOpenLinks("https://twitter.com/AlbetNv")}
+        >
+          @AlbetNv
+        </Text>
       </View>
       <View>
         <Text style={[styles.textMd, styles.mtMedium]}>Stack Tech</Text>
@@ -117,7 +146,7 @@ export default function AboutPage({ navigation }) {
                 styles.stackTechText,
               ]}
             >
-              <Text style={styles.circleText}>60%</Text>
+              <Text style={styles.circleText}>70%</Text>
             </View>
             <FrameworkIcon />
           </View>
@@ -140,7 +169,7 @@ export default function AboutPage({ navigation }) {
                 styles.stackTechText,
               ]}
             >
-              <Text style={styles.circleText}>60%</Text>
+              <Text style={styles.circleText}>50%</Text>
             </View>
             <CodeIcon />
           </View>
@@ -164,7 +193,7 @@ export default function AboutPage({ navigation }) {
               styles.stackTechText,
             ]}
           >
-            <Text style={styles.circleText}>60%</Text>
+            <Text style={styles.circleText}>75%</Text>
           </View>
           <CodeIcon />
         </View>
