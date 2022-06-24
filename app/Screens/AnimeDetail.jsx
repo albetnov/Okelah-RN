@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { Back } from "../Components/Back";
 import { Status } from "../Components/Status";
 import { BlurView } from "expo-blur";
@@ -82,8 +82,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   card: {
-    // backgroundColor: "#EDDFB3",
-    // backgroundColor: "transparent",
     borderRadius: 15,
     padding: 10,
     width: 200,

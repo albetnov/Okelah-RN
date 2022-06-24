@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { getAnime } from "../Api/anitop";
-import Card from "../Components/Card";
+import { getCoupleCharts } from "../Api/anitop";
+import { CardVertical } from "../Components/CardVertical";
 import { Header } from "../Components/Header";
 import { Switcher } from "../Components/Switcher";
 
-export default function Home({ navigation }) {
-  const [anime, setAnime] = useState([]);
+export const CouplePage = ({ navigation }) => {
+  const [couple, setCouple] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleError = (err) => {
@@ -22,14 +22,14 @@ export default function Home({ navigation }) {
     Alert.alert(`Error ${err.message}`, err.response.data.message);
   };
 
-  const fetchAnime = async () => {
+  const fetchCharts = async () => {
     try {
       setIsLoading(true);
-      const res = await getAnime();
-      const _anime = res.data.data;
-      console.log("res:", _anime);
+      const res = await getCoupleCharts();
+      const _couple = res.data.data;
+      console.log("res:", _couple);
 
-      setAnime(_anime);
+      setCouple(_couple);
     } catch (err) {
       handleError(err);
     } finally {
@@ -38,13 +38,11 @@ export default function Home({ navigation }) {
   };
 
   useEffect(() => {
-    fetchAnime();
+    fetchCharts();
   }, []);
 
-  const renderAnime = ({ item }) => {
-    const onPress = () => navigation.navigate("AnimeDetail", { item });
-
-    return <Card onPress={onPress} item={item} />;
+  const renderCharts = ({ item }) => {
+    return <CardVertical item={item} />;
   };
 
   return (
@@ -60,14 +58,15 @@ export default function Home({ navigation }) {
           <Text>Loading...</Text>
         ) : (
           <FlatList
-            data={anime}
-            keyExtractor={(item) => item.title}
-            renderItem={renderAnime}
+            data={couple}
+            keyExtractor={(item) => item.names[0] + item.names[1]}
+            renderItem={renderCharts}
+            contentContainerStyle={styles.contentContainer}
             ListHeaderComponent={
               <>
-                <Header type="anime" />
+                <Header type="couple" />
                 <View style={styles.switchContainer}>
-                  <Switcher type="anime" nav={navigation} />
+                  <Switcher type="couple" nav={navigation} />
                 </View>
               </>
             }
@@ -76,7 +75,7 @@ export default function Home({ navigation }) {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -99,6 +98,9 @@ const styles = StyleSheet.create({
     height: 50,
   },
   switchContainer: {
+    alignItems: "center",
+  },
+  contentContainer: {
     alignItems: "center",
   },
 });

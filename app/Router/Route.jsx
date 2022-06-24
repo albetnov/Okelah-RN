@@ -9,6 +9,7 @@ import Home from "../Screens/HomePage";
 import Register from "../Screens/RegisterField";
 import { getApps, initializeApp } from "firebase/app";
 import { AnimeDetail } from "../Screens/AnimeDetail";
+import { CouplePage } from "../Screens/CouplePage";
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,7 @@ export default function Route() {
           <>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="AnimeDetail" component={AnimeDetail} />
+            <Stack.Screen name="Couple" component={CouplePage} />
             <Stack.Screen name="About" component={About} />
           </>
         ) : (

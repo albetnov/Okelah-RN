@@ -14,7 +14,16 @@ export const Header = ({ type }) => {
       </View>
     );
   } else {
-    return;
+    return (
+      <View style={styles.header}>
+        <Image
+          style={styles.headerImg}
+          source={require("../Screens/asset/couple.jpg")}
+        />
+        <View style={styles.imgTint}></View>
+        <Text style={styles.headerText}>Couple Charts</Text>
+      </View>
+    );
   }
 };
 
