@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   textContainer: {
-    marginRight: 15,
+    marginLeft: 10,
+    flexShrink: 1,
+    marginHorizontal: 2,
   },
   heading: {
     fontSize: 16,
