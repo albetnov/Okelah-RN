@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   FlatList,
   Image,
+  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -80,7 +81,8 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    paddingTop: StatusBar.currentHeight,
+    marginTop: 5,
     flex: 1,
   },
   itemContainer: {

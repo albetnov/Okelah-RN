@@ -37,7 +37,7 @@ export default function Route() {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer style={{ paddingTop: 3000 }}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {checkForAuth() ? (
           <>

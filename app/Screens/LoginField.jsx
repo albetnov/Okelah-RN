@@ -7,6 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  StatusBar,
+  ScrollView,
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { modifyAuth } from "../Redux/authSlice";
@@ -48,7 +50,7 @@ const LoginField = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.logoWrapper}>
         <Image source={require("./asset/logo.png")} style={styles.logo} />
       </View>
@@ -101,13 +103,15 @@ const LoginField = ({ navigation }) => {
           Sign Up!
         </Text>
       </Text>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingTop: StatusBar.currentHeight,
+    flex: 1,
   },
   logoWrapper: {
     marginTop: 20,
@@ -186,7 +190,7 @@ const styles = StyleSheet.create({
     height: 45,
   },
   mtLg: {
-    marginTop: 50,
+    marginTop: 45,
   },
   paragraph: {
     fontSize: 16,

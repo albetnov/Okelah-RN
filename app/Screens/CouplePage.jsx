@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   FlatList,
   Image,
+  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -79,8 +80,8 @@ export const CouplePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
     flex: 1,
+    paddingTop: StatusBar.currentHeight,
   },
   itemContainer: {
     flex: 1,

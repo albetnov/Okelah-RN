@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  StatusBar,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Back } from "../Components/Back";
@@ -198,6 +199,7 @@ export default function AboutPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingTop: StatusBar.currentHeight,
   },
   title: {
     marginTop: 10,

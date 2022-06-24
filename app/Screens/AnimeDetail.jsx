@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
 import { Back } from "../Components/Back";
 import { Status } from "../Components/Status";
 import { BlurView } from "expo-blur";
@@ -56,7 +56,7 @@ export const AnimeDetail = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 5,
-    marginTop: 10,
+    paddingTop: StatusBar.currentHeight,
   },
   img: {
     width: 100,
